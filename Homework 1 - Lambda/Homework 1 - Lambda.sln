@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Homework 1 - Lambda", "Homework 1 - Lambda.vcxproj", "{1D3A9381-933D-4A49-8BC4-FCCD04789C0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D3A9381-933D-4A49-8BC4-FCCD04789C0B}.Debug|x64.ActiveCfg = Debug|x64
+		{1D3A9381-933D-4A49-8BC4-FCCD04789C0B}.Debug|x64.Build.0 = Debug|x64
+		{1D3A9381-933D-4A49-8BC4-FCCD04789C0B}.Debug|x86.ActiveCfg = Debug|Win32
+		{1D3A9381-933D-4A49-8BC4-FCCD04789C0B}.Debug|x86.Build.0 = Debug|Win32
+		{1D3A9381-933D-4A49-8BC4-FCCD04789C0B}.Release|x64.ActiveCfg = Release|x64
+		{1D3A9381-933D-4A49-8BC4-FCCD04789C0B}.Release|x64.Build.0 = Release|x64
+		{1D3A9381-933D-4A49-8BC4-FCCD04789C0B}.Release|x86.ActiveCfg = Release|Win32
+		{1D3A9381-933D-4A49-8BC4-FCCD04789C0B}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {47C8CCB4-6580-4F7E-B33C-E76E8C163B0E}
+	EndGlobalSection
+EndGlobal
