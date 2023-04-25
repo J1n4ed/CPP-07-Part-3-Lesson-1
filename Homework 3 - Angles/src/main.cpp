@@ -52,7 +52,7 @@ int main()
 
 	std::cout << "[Входные данные]: ";
 
-	for (double i : angles)
+	for (const double & i : angles)
 	{
 		std::cout << i << ' ';
 	}
@@ -84,7 +84,7 @@ int main()
 
 	std::cout << "[Выходные данные]:\n";
 
-	for (const auto& angle : angles) 
+	for (const auto & angle : angles) 
 	{
 		std::cout << angle << ": ";
 		for (const auto & function : functions)
@@ -106,7 +106,7 @@ int main()
 
 	auto func4 = [](const double& angle)
 	{
-		// cos
+		// cot
 		std::cout << " cot: " << ( cos(angle) / sin(angle) ) << ' ';
 
 	};
@@ -117,7 +117,7 @@ int main()
 	for (const auto& angle : angles)
 	{
 		std::cout << angle << ": ";
-		for (const auto& function : functions)
+		for (const auto & function : functions)
 		{
 			function(angle);
 		}

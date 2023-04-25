@@ -55,7 +55,7 @@ int main()
 			std::cout << "\nVector of ints: ";
 			auto tmp = std::get<std::vector<int>>(variable);
 
-			for (int i : tmp)
+			for (const int & i : tmp)
 			{
 				std::cout << i << ' ';
 			}

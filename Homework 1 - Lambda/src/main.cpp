@@ -30,7 +30,7 @@ int main()
 	// BODY
 	std::cout << "¬ходные данные: ";
 
-	for (int i : dataArr)
+	for (const int & i : dataArr)
 	{
 		std::cout << i << ' ';
 	}
