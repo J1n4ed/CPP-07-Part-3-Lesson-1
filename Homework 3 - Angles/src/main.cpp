@@ -94,6 +94,36 @@ int main()
 		std::cout << std::endl;
 	}
 
+	// Докинем тангенс и котангенс
+	auto func3 = [](const double& angle)
+	{
+		// tan
+		std::cout << " tan: " << tan(angle) << ' '; 
+
+	};
+
+	functions.push_back(func3);
+
+	auto func4 = [](const double& angle)
+	{
+		// cos
+		std::cout << " cot: " << ( cos(angle) / sin(angle) ) << ' ';
+
+	};
+
+	functions.push_back(func4);
+
+	std::cout << "[Повторный вывод (\w tan & cot]:\n";
+	for (const auto& angle : angles)
+	{
+		std::cout << angle << ": ";
+		for (const auto& function : functions)
+		{
+			function(angle);
+		}
+		std::cout << std::endl;
+	}
+
 	// CLEAN & EXIT
 	std::cout << "\n\n";
 	system("pause");
