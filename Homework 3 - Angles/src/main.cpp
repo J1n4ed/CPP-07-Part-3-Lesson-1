@@ -12,10 +12,11 @@
 // DEFINES
 
 #define _USE_MATH_DEFINES
+#define ROUND_PRECISION 10000.0
 
-#define FIRST_ANGLE		30
-#define SECOND_ANGLE	60
-#define THIRD_ANGLE		90
+#define DEGREE_30		30
+#define DEGREE_60		60
+#define DEGREE_90		90
 
 // INCLUDES
 
@@ -23,6 +24,7 @@
 #include <vector>
 #include <math.h>
 #include <functional>
+// #include <iomanip>
 
 /*
 [Входные данные]: 30 * 3.1415926 / 180, 60 * 3.1415926 / 180, 90 * 3.1415926 / 180 // перевод из градусов в радианы
@@ -40,13 +42,21 @@ int main()
 
 	// CONSOLE SETTINGS
 
-	std::cout.precision(6);
+	std::cout.precision(8);
+	std::cout << std::fixed;
+
+	// ROUNDING METHOD
+
+	auto round_num = [](const double& value)
+	{
+		return std::round(value * ROUND_PRECISION) / ROUND_PRECISION;
+	};
 
 	// VARIABLES
 
-	constexpr double firstAngle = FIRST_ANGLE * M_PI / 180;
-	constexpr double secondAngle = SECOND_ANGLE * M_PI / 180;
-	constexpr double thirdAngle = THIRD_ANGLE * M_PI / 180;
+	constexpr double firstAngle		= DEGREE_30 * M_PI / 180;
+	constexpr double secondAngle	= DEGREE_60 * M_PI / 180;
+	constexpr double thirdAngle		= DEGREE_90 * M_PI / 180;
 
 	std::vector<double> angles = { firstAngle , secondAngle , thirdAngle };
 
@@ -54,7 +64,7 @@ int main()
 
 	for (const double & i : angles)
 	{
-		std::cout << i << ' ';
+		std::cout << round_num(i) << ' ';
 	}
 
 	std::cout << std::endl;	
@@ -62,23 +72,23 @@ int main()
 	std::vector<std::function<void(const double &)>> functions;
 
 	// push functions to vector
-	auto func1 = [](const double & angle)
+	auto get_sin = [](const double & angle)
 	{
 		// sin
-		std::cout << " sin: " << sin(angle) << ' ';
+		std::cout << "\tsin: " << std::round(sin(angle) * ROUND_PRECISION) / ROUND_PRECISION << '\t';
 
 	};
 
-	functions.push_back(func1);
+	functions.push_back(get_sin);
 
-	auto func2 = [](const double& angle)
+	auto get_cos = [](const double& angle)
 	{
 		// cos
-		std::cout << " cos: " << cos(angle) << ' ';
+		std::cout << "\tcos: " << std::round(cos(angle) * ROUND_PRECISION) / ROUND_PRECISION << '\t';
 
 	};
 
-	functions.push_back(func2);
+	functions.push_back(get_cos);
 
 	// BODY
 
@@ -86,7 +96,7 @@ int main()
 
 	for (const auto & angle : angles) 
 	{
-		std::cout << angle << ": ";
+		std::cout << "rad: " << round_num(angle) << '\t';
 		for (const auto & function : functions)
 		{
 			function(angle);
@@ -95,28 +105,28 @@ int main()
 	}
 
 	// Докинем тангенс и котангенс
-	auto func3 = [](const double& angle)
+	auto get_tan = [](const double& angle)
 	{
 		// tan
-		std::cout << " tan: " << tan(angle) << ' '; 
+		std::cout << std::scientific << "\ttan: " << std::round(tan(angle) * ROUND_PRECISION) / ROUND_PRECISION << '\t' << std::fixed;
 
 	};
 
-	functions.push_back(func3);
+	functions.push_back(get_tan);
 
-	auto func4 = [](const double& angle)
+	auto get_cot = [](const double& angle)
 	{
 		// cot
-		std::cout << " cot: " << ( cos(angle) / sin(angle) ) << ' ';
+		std::cout << std::scientific << "\tcot: " << std::round(( cos(angle) / sin(angle) ) * ROUND_PRECISION) / ROUND_PRECISION << '\t' << std::fixed;
 
 	};
 
-	functions.push_back(func4);
+	functions.push_back(get_cot);
 
 	std::cout << "[Повторный вывод (\w tan & cot]:\n";
 	for (const auto& angle : angles)
 	{
-		std::cout << angle << ": ";
+		std::cout << "rad: " << angle << '\t';
 		for (const auto & function : functions)
 		{
 			function(angle);

@@ -43,11 +43,7 @@ int main()
 	{
 		auto mult = [&i]()
 		{
-			if (i % 2 == 0)
-			{
-				// nothing
-			}
-			else
+			if (i % 2 != 0)
 			{
 				i = i * 3;
 			}
@@ -55,8 +51,7 @@ int main()
 
 		mult();		 
 
-		std::cout << i << ' ';
-		
+		std::cout << i << ' ';		
 	}
 
 	// CLEAN & EXIT

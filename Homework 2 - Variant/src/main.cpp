@@ -38,15 +38,13 @@ int main()
 
 		if (std::holds_alternative<std::string>(variable))
 		{
-			std::cout << "\nString: ";
 			auto tmp = std::get<std::string>(variable);
-			std::cout << tmp;
+			std::cout << "\nString: " << tmp;
 		}
 		else if (std::holds_alternative<int>(variable))
 		{
-			std::cout << "\nOrig int: ";
 			auto tmp = std::get<int>(variable);
-			std::cout << tmp;
+			std::cout << "\nOrig int: " << tmp;
 			tmp = tmp * 2;
 			std::cout << ", changed int: " << tmp;			
 		}
@@ -62,7 +60,7 @@ int main()
 		}
 		else
 		{
-			std::cerr << "\nОшибка вышла...";
+			std::cerr << "\nОшибка, возвращаемые условия get_variant() не соответствуют ожидаемым.";
 		}
 
 		std::getchar();
